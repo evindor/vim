@@ -87,6 +87,7 @@ set ttyfast
 
 " Show PEP8 line length border
 autocmd FileType python setlocal colorcolumn=80
+autocmd FileType javascript setlocal colorcolumn=80
 
 " Switch between windows faster
 map <C-J> <C-W>j
@@ -105,7 +106,7 @@ syntax enable
 let python_highlight_all=1
 set t_Co=256
 set background=dark
-colorscheme monokai 
+colorscheme railscasts 
 
 " }}}
 
@@ -218,7 +219,6 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 " Set the tags files to be the following and F4 to re-build tags file
 set tags=./tags,tags
 nmap <silent> <F4> :!ctags -f ./tags -R --totals=yes --tag-relative=yes<CR>
-nnoremap <silent> <Leader>l :TlistOpen<CR>
 
 " Nerd tree toggle
 nmap <silent> <Leader>r :NERDTreeToggle<CR>
@@ -226,6 +226,7 @@ nmap <silent> <Leader>r :NERDTreeToggle<CR>
 " Buffer Explorer
 let g:bufExplorerShowRelativePath=1
 let g:bufExplorerSortBy='name'
+let g:ctrlp_map = '<c-p>' 
 nmap <silent> <Leader>e :BufExplorer<CR>
 
 " }}}
