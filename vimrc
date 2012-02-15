@@ -105,7 +105,7 @@ syntax enable
 let python_highlight_all=1
 set t_Co=256
 set background=dark
-colorscheme solarized
+colorscheme monokai 
 
 " }}}
 
@@ -177,13 +177,13 @@ set expandtab
 set shiftround
 
 " Use 4 spaces for (auto)indent
-set shiftwidth=2
+set shiftwidth=4
 
 " Use 4 spaces for inserting <Tab> or using <BS>
-set softtabstop=2
+set softtabstop=4
 
 " Use 4 spaces for <Tab> and :retab
-set tabstop=2
+set tabstop=4
 
 " Visual shifting (does not exit Visual mode)
 vnoremap < <gv
@@ -217,7 +217,7 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " Set the tags files to be the following and F4 to re-build tags file
 set tags=./tags,tags
-nmap <silent> <F4> :!ctags -f ./tags -R --totals=yes --tag-relative=yes --python-kinds=-iv<CR>
+nmap <silent> <F4> :!ctags -f ./tags -R --totals=yes --tag-relative=yes<CR>
 nnoremap <silent> <Leader>l :TlistOpen<CR>
 
 " Nerd tree toggle
