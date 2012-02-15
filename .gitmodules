@@ -1,9 +1,6 @@
 [submodule "bundle/nerdtree"]
 	path = bundle/nerdtree
 	url = git://github.com/scrooloose/nerdtree.git
-[submodule "bundle/pythoncomplete"]
-	path = bundle/pythoncomplete
-	url = git://github.com/vim-scripts/pythoncomplete.git
 [submodule "bundle/command-t"]
 	path = bundle/command-t
 	url = git://github.com/wincent/Command-T.git
@@ -25,21 +22,9 @@
 [submodule "bundle/colors-monokai"]
 	path = bundle/colors-monokai
 	url = git://github.com/rickharris/vim-monokai.git
-[submodule "bundle/python-indent"]
-	path = bundle/python-indent
-	url = git://github.com/gg/python.vim.git
-[submodule "bundle/python"]
-	path = bundle/python
-	url = git://github.com/satyrius/python.vim.git
-[submodule "bundle/rope-vim"]
-	path = bundle/rope-vim
-	url = https://github.com/timo/rope-vim.git
 [submodule "bundle/scratch"]
 	path = bundle/scratch
 	url = git://github.com/duff/vim-scratch.git
 [submodule "bundle/fugitive"]
 	path = bundle/fugitive
 	url = git://github.com/tpope/vim-fugitive.git
-[submodule "bundle/pyflakes"]
-	path = bundle/pyflakes
-	url = git://github.com/nvie/vim-pyflakes.git
