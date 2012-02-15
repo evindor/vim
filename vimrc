@@ -49,6 +49,9 @@ autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | execute "
 "
 " {{{
 
+" Mouse clicking
+set mouse=a
+
 " I want to see where I am
 set cursorline
 
@@ -87,7 +90,6 @@ set ttyfast
 
 " Show PEP8 line length border
 autocmd FileType python setlocal colorcolumn=80
-autocmd FileType javascript setlocal colorcolumn=80
 
 " Switch between windows faster
 map <C-J> <C-W>j
@@ -227,6 +229,7 @@ nmap <silent> <Leader>r :NERDTreeToggle<CR>
 let g:bufExplorerShowRelativePath=1
 let g:bufExplorerSortBy='name'
 let g:ctrlp_map = '<c-p>' 
+let g:ctrlp_custom_ignore = '\.py$\|\.sql$\|\.git$'
 nmap <silent> <Leader>e :BufExplorer<CR>
 
 " }}}
