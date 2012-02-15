@@ -105,7 +105,7 @@ syntax enable
 let python_highlight_all=1
 set t_Co=256
 set background=dark
-colorscheme railscasts
+colorscheme solarized
 
 " }}}
 
@@ -177,16 +177,13 @@ set expandtab
 set shiftround
 
 " Use 4 spaces for (auto)indent
-set shiftwidth=4
+set shiftwidth=2
 
 " Use 4 spaces for inserting <Tab> or using <BS>
-set softtabstop=4
+set softtabstop=2
 
 " Use 4 spaces for <Tab> and :retab
-set tabstop=4
-
-" Remove trailing whitespaces before save
-autocmd BufWritePre * :%s/\s\+$//e
+set tabstop=2
 
 " Visual shifting (does not exit Visual mode)
 vnoremap < <gv
@@ -209,7 +206,6 @@ set omnifunc=syntaxcomplete#Complete
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " }}}
@@ -231,38 +227,5 @@ nmap <silent> <Leader>r :NERDTreeToggle<CR>
 let g:bufExplorerShowRelativePath=1
 let g:bufExplorerSortBy='name'
 nmap <silent> <Leader>e :BufExplorer<CR>
-
-" Rope
-nmap <silent> <Leader>g :call RopeGotoDefinition()<CR>
-
-" PyFlakes
-autocmd BufWritePost *.py call Pyflakes()
-
-" }}}
-
-"
-" VIRTUALENV
-"
-" {{{
-
-if has('python')
-    python << EOF
-import os, sys
-ve_dir = os.environ.get('VIRTUAL_ENV')
-if ve_dir:
-    ve_dir in sys.path or sys.path.insert(0, ve_dir)
-    activate_this = os.path.join(os.path.join(ve_dir, 'bin'), 'activate_this.py')
-    execfile(activate_this, dict(__file__=activate_this))
-EOF
-endif
-
-" }}}
-
-"
-" ABBREVIATIONS
-"
-" {{{
-
-iab pyutf # -*- coding: utf-8 -*-<esc>
 
 " }}}
