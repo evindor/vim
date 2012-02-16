@@ -220,7 +220,7 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " Set the tags files to be the following and F4 to re-build tags file
 set tags=./tags,tags
-nmap <silent> <F4> :!ctags -f ./tags -R --totals=yes --tag-relative=yes<CR>
+nmap <silent> <F4> :!/usr/local/bin/ctags -f ./tags -R --totals=yes --tag-relative=yes<CR>
 
 " Nerd tree toggle
 nmap <silent> <Leader>r :NERDTreeToggle<CR>
