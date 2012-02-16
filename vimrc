@@ -68,7 +68,7 @@ set nowrap
 set number
 
 " Show line, column number, and relative position within a file in the status line
-set ruler
+" set ruler
 
 " Scroll when cursor gets within 3 characters of top/bottom edge
 set scrolloff=3
@@ -224,7 +224,7 @@ nmap <silent> <F4> :!/usr/local/bin/ctags -f ./tags -R --totals=yes --tag-relati
 
 " Nerd tree toggle
 nmap <silent> <Leader>r :NERDTreeToggle<CR>
-
+nmap <silent> <Leader>t :TagbarToggle<CR>
 " Buffer Explorer
 let g:bufExplorerShowRelativePath=1
 let g:bufExplorerSortBy='name'
