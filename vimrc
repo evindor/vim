@@ -231,6 +231,7 @@ let g:bufExplorerShowRelativePath=1
 let g:bufExplorerSortBy='name'
 let g:ctrlp_map = '<c-p>' 
 let g:ctrlp_custom_ignore = '\.py$\|\.sql$\|\.git$'
+let g:EasyMotion_keys = '1234567890'
 nmap <silent> <Leader>e :BufExplorer<CR>
 
 " }}}
