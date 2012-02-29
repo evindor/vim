@@ -19,7 +19,7 @@ set langmap=йq,цw,уe,кr,еt,нy,гu,шi,щo,зp,х[,ъ],фa,ыs,вd,аf,пg,
 :command W w
 :command Q q
 :command Wq wq
-
+:command Qa qa
 
 " Set the <Leader> for combo commands
 let mapleader = ","
