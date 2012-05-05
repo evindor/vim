@@ -208,6 +208,7 @@ vnoremap > >gv
 
 " Specify how keyword completion should work
 set complete=.,w,b,t
+set iskeyword+=-
 
 " Default syntax completion
 set omnifunc=syntaxcomplete#Complete
@@ -228,6 +229,7 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 " Set the tags files to be the following and F4 to re-build tags file
 set tags=./tags,tags
 nmap <silent> <F4> :!jsctags -f -R ./tags<CR>
+nmap <silent> <F5> :JSHint<CR>
 
 " Nerd tree toggle
 nmap <silent> <Leader>r :NERDTreeToggle<CR>
