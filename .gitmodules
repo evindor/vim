@@ -52,3 +52,6 @@
 [submodule "bundle/jshint"]
 	path = bundle/jshint
 	url = git://github.com/walm/jshint.vim.git
+[submodule "bundle/jst"]
+	path = bundle/jst
+	url = git://github.com/briancollins/vim-jst.git

@@ -24,7 +24,7 @@ set langmap=йq,цw,уe,кr,еt,нy,гu,шi,щo,зp,х[,ъ],фa,ыs,вd,аf,пg,
 " Set the <Leader> for combo commands
 let mapleader = ","
 
-set clipboard=unnamed
+set clipboard+=unnamed
 set diffopt+=iwhite
 
 "
