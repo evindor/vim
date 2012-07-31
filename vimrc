@@ -228,21 +228,15 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 " {{{
 
 " Set the tags files to be the following and F4 to re-build tags file
-set tags=./tags,tags
-nmap <silent> <F4> :!jsctags -f -R ./tags<CR>
-nmap <silent> <F5> :JSHint<CR>
 
 " Nerd tree toggle
 nmap <silent> <Leader>r :NERDTreeToggle<CR>
-nmap <silent> <Leader>t :TagbarToggle<CR>
 nmap <silent> <Leader>b :MiniBufExplorer<CR>
 " Buffer Explorer
 let g:bufExplorerShowRelativePath=1
 let g:bufExplorerSortBy='name'
 let g:ctrlp_map = '<c-p>' 
 let g:ctrlp_custom_ignore = '\.py$\|\.sql$\|\.git$'
-let g:EasyMotion_keys = '1234567890'
 nmap <silent> <Leader>e :BufExplorer<CR>
-:imap § <Esc>
 
 " }}}
