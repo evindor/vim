@@ -6,12 +6,26 @@ To install just enter next commands:
     git clone git://github.com/evindor/vim.git .vim
     ln -s .vim/vimrc .vimrc
     cd .vim
-    git submodule init
-    git submodule update
+    git clone https://github.com/gmarik/vundle.git bundle/vundle
+    vim +BundleInstall +qall
 
-I use very few plugins and manage them using Pathogen. I prefer git submodules to be up-to-date with my plugins. My favourite plugins are:
+Now with Vundle :)
 
-* [CtrlP](http://www.vim.org/scripts/script.php?script_id=3736), the most helpful navigation plugin I ever seen.;
-* [Snipmate](http://www.vim.org/scripts/script.php?script_id=2540), TextMate styled snippets;
-* [JavaScript](https://github.com/pangloss/vim-javascript), better JS syntax and indentation;
-* [Buffer Explorer](http://www.vim.org/scripts/script.php?script_id=42), you will love it if you prefer work with buffers instead of tabs.
+Bundles used:
+
+    Bundle 'gmarik/vundle'
+    Bundle 'mileszs/ack.vim'
+    Bundle 'vim-scripts/AutoComplPop'
+    Bundle 'vim-scripts/bufexplorer.zip'
+    Bundle 'Townk/vim-autoclose'
+    Bundle 'scrooloose/nerdtree'
+    Bundle 'msanders/snipmate.vim'
+    Bundle 'rickharris/vim-railscasts'
+    Bundle 'tpope/vim-fugitive'
+    Bundle 'kien/ctrlp.vim'
+    Bundle 'pangloss/vim-javascript'
+    Bundle 'Lokaltog/vim-powerline'
+    Bundle 'kchmck/vim-coffee-script'
+    Bundle 'scrooloose/nerdcommenter'
+    Bundle 'briancollins/vim-jst'
+    Bundle 'altercation/vim-colors-solarized'

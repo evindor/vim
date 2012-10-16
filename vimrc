@@ -1,25 +1,48 @@
 " No need to be compatible with old vi
 set nocompatible
+filetype off
+filetype plugin indent on
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
 
 "
-" PATHOGEN
-"
-" http://www.vim.org/scripts/script.php?script_id=2332
+" Bundles!
 "
 " {{{
-filetype off
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
-filetype plugin indent on
+
+" Github
+Bundle 'gmarik/vundle'
+Bundle 'mileszs/ack.vim'
+Bundle 'vim-scripts/AutoComplPop'
+Bundle 'vim-scripts/bufexplorer.zip'
+Bundle 'Townk/vim-autoclose'
+Bundle 'scrooloose/nerdtree'
+Bundle 'msanders/snipmate.vim'
+Bundle 'rickharris/vim-railscasts'
+Bundle 'tpope/vim-fugitive'
+Bundle 'kien/ctrlp.vim'
+Bundle 'pangloss/vim-javascript'
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'briancollins/vim-jst'
+Bundle 'altercation/vim-colors-solarized'
+
 " }}}
 
+"
 " Fix russian keys input
+"
+" {{{
 set langmap=йq,цw,уe,кr,еt,нy,гu,шi,щo,зp,х[,ъ],фa,ыs,вd,аf,пg,рh,оj,лk,дl,ж\\;,э',яz,чx,сc,мv,иb,тn,ьm,б\\,,ю.,ё`,ЙQ,ЦW,УE,КR,ЕT,НY,ГU,ШI,ЩO,ЗP,Х{,Ъ},ФA,ЫS,ВD,АF,ПG,РH,ОJ,ЛK,ДL,Ж:,Э\\",ЯZ,ЧX,СC,МV,ИB,ТN,ЬM,Б<,Ю>,Ё~
 :command WQ wq
 :command W w
 :command Q q
 :command Wq wq
 :command Qa qa
+
+" }}}
 
 " Set the <Leader> for combo commands
 let mapleader = ","
@@ -116,7 +139,10 @@ syntax enable
 let python_highlight_all=1
 set t_Co=256
 set background=dark
-colorscheme railscasts 
+"let g:solarized_termcolors=256
+let g:Powerline_colorscheme='skwp'
+"let g:Powerline_symbols='fancy'
+colorscheme solarized 
 
 " }}}
 
@@ -216,7 +242,7 @@ set omnifunc=syntaxcomplete#Complete
 
 " Completion depends on filetype
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType html,markdown,jst setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
@@ -231,12 +257,12 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " Nerd tree toggle
 nmap <silent> <Leader>r :NERDTreeToggle<CR>
+nmap <silent> <Leader>e :BufExplorer<CR>
 nmap <silent> <Leader>b :MiniBufExplorer<CR>
 " Buffer Explorer
 let g:bufExplorerShowRelativePath=1
 let g:bufExplorerSortBy='name'
 let g:ctrlp_map = '<c-p>' 
-let g:ctrlp_custom_ignore = '\.py$\|\.sql$\|\.git$'
-nmap <silent> <Leader>e :BufExplorer<CR>
+let g:ctrlp_custom_ignore = '\.sql$\|\.git$'
 
 " }}}
