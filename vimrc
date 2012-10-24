@@ -126,6 +126,8 @@ set ttyfast
 
 " Show PEP8 line length border
 autocmd FileType python setlocal colorcolumn=80
+autocmd FileType javascript setlocal colorcolumn=80
+autocmd FileType coffee setlocal colorcolumn=80
 
 " Switch between windows faster
 map <C-J> <C-W>j
