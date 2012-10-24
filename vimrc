@@ -1,7 +1,6 @@
 " No need to be compatible with old vi
 set nocompatible
 filetype off
-filetype plugin indent on
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
@@ -16,20 +15,26 @@ Bundle 'gmarik/vundle'
 Bundle 'mileszs/ack.vim'
 Bundle 'vim-scripts/AutoComplPop'
 Bundle 'vim-scripts/bufexplorer.zip'
+Bundle 'jistr/vim-nerdtree-tabs'
 Bundle 'Townk/vim-autoclose'
 Bundle 'scrooloose/nerdtree'
 Bundle 'msanders/snipmate.vim'
 Bundle 'rickharris/vim-railscasts'
 Bundle 'tpope/vim-fugitive'
 Bundle 'kien/ctrlp.vim'
-Bundle 'pangloss/vim-javascript'
+Bundle 'vim-scripts/JavaScript-syntax'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'briancollins/vim-jst'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'jonathanfilip/vim-lucius'
+Bundle 'walm/jshint.vim'
+Bundle 'Syntastic'
 
 " }}}
+
+filetype plugin indent on
 
 "
 " Fix russian keys input
@@ -258,11 +263,21 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 " Nerd tree toggle
 nmap <silent> <Leader>r :NERDTreeToggle<CR>
 nmap <silent> <Leader>e :BufExplorer<CR>
-nmap <silent> <Leader>b :MiniBufExplorer<CR>
+nmap <silent> <Leader>s :SyntasticToggleMode<CR>
+nmap <silent> <Leader>w :Errors<CR>
+"nmap <silent> <Leader>e :MiniBufExplorer<CR>
+nmap <silent> <Leader>d :bd<CR>
+nmap <silent> <Leader>q :q<CR>
 " Buffer Explorer
 let g:bufExplorerShowRelativePath=1
 let g:bufExplorerSortBy='name'
 let g:ctrlp_map = '<c-p>' 
 let g:ctrlp_custom_ignore = '\.sql$\|\.git$'
+let g:syntastic_mode_map = { 'mode': 'active',
+                            \ 'active_filetypes': ['js', 'coffee', 'html', 'py'],
+                            \ 'passive_filetypes': ['jst'] }
+let g:syntastic_check_on_open=1
+let g:syntastic_auto_loc_list=1
+let g:syntastic_javascript_jshint_conf='~/.vim/jshint.json'
 
 " }}}
