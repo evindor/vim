@@ -1,0 +1,10 @@
+{
+    "max_line_length": {
+        "value" : 80,
+        "level" : "error"
+    },
+    "indentation": {
+        "value" : 4,
+        "level" : "error"
+    }
+}

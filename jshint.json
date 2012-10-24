@@ -5,5 +5,6 @@
     "strict": true,
     "trailing": true,
     "maxparams": 5,
-    "maxlen": 80
+    "maxlen": 80,
+    "browser": true
 }

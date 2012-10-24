@@ -30,7 +30,7 @@ Bundle 'briancollins/vim-jst'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'jonathanfilip/vim-lucius'
 Bundle 'walm/jshint.vim'
-Bundle 'Syntastic'
+Bundle 'scrooloose/syntastic'
 
 " }}}
 
@@ -276,10 +276,11 @@ let g:bufExplorerSortBy='name'
 let g:ctrlp_map = '<c-p>' 
 let g:ctrlp_custom_ignore = '\.sql$\|\.git$'
 let g:syntastic_mode_map = { 'mode': 'active',
-                            \ 'active_filetypes': ['js', 'coffee', 'html', 'py'],
-                            \ 'passive_filetypes': ['jst'] }
+                            \ 'active_filetypes': ['js', 'coffee', 'py'],
+                            \ 'passive_filetypes': ['jst', 'html'] }
 let g:syntastic_check_on_open=1
 let g:syntastic_auto_loc_list=1
 let g:syntastic_javascript_jshint_conf='~/.vim/jshint.json'
+let g:syntastic_coffee_lint_options='-f ~/.vim/coffeelint.json'
 
 " }}}
