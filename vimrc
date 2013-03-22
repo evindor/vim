@@ -13,12 +13,9 @@ call vundle#rc()
 " Github
 Bundle 'gmarik/vundle'
 Bundle 'mileszs/ack.vim'
-Bundle 'vim-scripts/AutoComplPop'
 Bundle 'vim-scripts/bufexplorer.zip'
-Bundle 'jistr/vim-nerdtree-tabs'
 Bundle 'Townk/vim-autoclose'
 Bundle 'scrooloose/nerdtree'
-Bundle 'msanders/snipmate.vim'
 Bundle 'rickharris/vim-railscasts'
 Bundle 'tpope/vim-fugitive'
 Bundle 'kien/ctrlp.vim'
@@ -31,6 +28,7 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'jonathanfilip/vim-lucius'
 Bundle 'walm/jshint.vim'
 Bundle 'scrooloose/syntastic'
+Bundle 'SuperTab'
 
 " }}}
 
@@ -52,8 +50,12 @@ set langmap=йq,цw,уe,кr,еt,нy,гu,шi,щo,зp,х[,ъ],фa,ыs,вd,аf,пg,
 " Set the <Leader> for combo commands
 let mapleader = ","
 
-set clipboard+=unnamed
+set clipboard=unnamed
 set diffopt+=iwhite
+set shell=zsh
+if has("gui_macvim")
+    let macvim_skip_cmd_opt_movement = 1
+endif
 
 "
 " BUFFERS AND FILES
@@ -145,9 +147,9 @@ map <C-L> <C-W>l
 syntax enable
 let python_highlight_all=1
 set t_Co=256
-set background=dark
+set background=light
 "let g:solarized_termcolors=256
-let g:Powerline_colorscheme='skwp'
+"let g:Powerline_colorscheme='skwp'
 "let g:Powerline_symbols='fancy'
 colorscheme solarized 
 
@@ -247,7 +249,7 @@ set iskeyword+=-
 " Default syntax completion
 set omnifunc=syntaxcomplete#Complete
 
-" Completion depends on filetype
+ "Completion depends on filetype
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown,jst setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
@@ -275,6 +277,8 @@ let g:bufExplorerShowRelativePath=1
 let g:bufExplorerSortBy='name'
 let g:ctrlp_map = '<c-p>' 
 let g:ctrlp_custom_ignore = '\.sql$\|\.git$'
+let g:ctrlp_open_new_file = 't'
+let g:ctrlp_tabpage_position = 'al'
 let g:syntastic_mode_map = { 'mode': 'active',
                             \ 'active_filetypes': ['js', 'coffee', 'py'],
                             \ 'passive_filetypes': ['jst', 'html'] }
@@ -282,5 +286,6 @@ let g:syntastic_check_on_open=1
 let g:syntastic_auto_loc_list=1
 let g:syntastic_javascript_jshint_conf='~/.vim/jshint.json'
 let g:syntastic_coffee_lint_options='-f ~/.vim/coffeelint.json'
+let NERDTreeIgnore=['\.pyc$']
 
 " }}}
