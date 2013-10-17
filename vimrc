@@ -14,13 +14,12 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'mileszs/ack.vim'
 Bundle 'vim-scripts/bufexplorer.zip'
-Bundle 'Townk/vim-autoclose'
+Bundle 'Raimondi/delimitMate'
 Bundle 'scrooloose/nerdtree'
-Bundle 'rickharris/vim-railscasts'
 Bundle 'tpope/vim-fugitive'
 Bundle 'kien/ctrlp.vim'
 Bundle 'vim-scripts/JavaScript-syntax'
-Bundle 'Lokaltog/vim-powerline'
+Bundle 'bling/vim-airline'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'briancollins/vim-jst'
@@ -28,8 +27,11 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'jonathanfilip/vim-lucius'
 Bundle 'walm/jshint.vim'
 Bundle 'scrooloose/syntastic'
-Bundle 'SuperTab'
+"Bundle 'ervandew/supertab'
 Bundle 'evindor/vim-rusmode'
+Bundle 'groenewege/vim-less'
+Bundle 'evindor/YouCompleteMe'
+Bundle 'digitaltoad/vim-jade'
 
 " }}}
 
@@ -150,9 +152,9 @@ let python_highlight_all=1
 set t_Co=256
 set background=light
 "let g:solarized_termcolors=256
-"let g:Powerline_colorscheme='skwp'
-"let g:Powerline_symbols='fancy'
-colorscheme solarized 
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+colorscheme solarized
 
 " }}}
 
@@ -251,10 +253,11 @@ set iskeyword+=-
 set omnifunc=syntaxcomplete#Complete
 
  "Completion depends on filetype
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown,jst setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS et ts=4 sw=4 sts=4
+autocmd FileType html,markdown,jst setlocal omnifunc=htmlcomplete#CompleteTags et ts=4 sw=4 sts=4
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS et ts=4 sw=4 sts=4
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags et ts=4 sw=4 sts=4
+autocmd FileType eruby setlocal et ts=2 sw=2 sts=2
 
 " }}}
 
@@ -270,23 +273,27 @@ nmap <silent> <Leader>r :NERDTreeToggle<CR>
 nmap <silent> <Leader>e :BufExplorer<CR>
 nmap <silent> <Leader>s :SyntasticToggleMode<CR>
 nmap <silent> <Leader>w :Errors<CR>
-"nmap <silent> <Leader>e :MiniBufExplorer<CR>
 nmap <silent> <Leader>d :bd<CR>
+nmap <silent> <Leader>n :bn<CR>
+nmap <silent> <Leader>p :bp<CR>
 nmap <silent> <Leader>q :q<CR>
 " Buffer Explorer
 let g:bufExplorerShowRelativePath=1
 let g:bufExplorerSortBy='name'
-let g:ctrlp_map = '<c-p>' 
+let g:ctrlp_map = '<c-p>'
 let g:ctrlp_custom_ignore = '\.sql$\|\.git$'
 let g:ctrlp_open_new_file = 't'
 let g:ctrlp_tabpage_position = 'al'
-let g:syntastic_mode_map = { 'mode': 'active',
+let g:syntastic_mode_map = { 'mode': 'passive',
                             \ 'active_filetypes': ['js', 'coffee', 'py'],
                             \ 'passive_filetypes': ['jst', 'html'] }
 let g:syntastic_check_on_open=1
 let g:syntastic_auto_loc_list=1
 let g:syntastic_javascript_jshint_conf='~/.vim/jshint.json'
 let g:syntastic_coffee_lint_options='-f ~/.vim/coffeelint.json'
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
+"let g:ycm_seed_identifiers_with_syntax = 1
+
 let NERDTreeIgnore=['\.pyc$']
 
 " }}}
