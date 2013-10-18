@@ -218,6 +218,7 @@ set backspace=indent,eol,start
 
 " Use autoindention
 set autoindent
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 
 " All tabs will be replaced by spaces
 set expandtab
