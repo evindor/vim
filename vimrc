@@ -32,6 +32,7 @@ Bundle 'evindor/vim-rusmode'
 Bundle 'groenewege/vim-less'
 Bundle 'evindor/YouCompleteMe'
 Bundle 'digitaltoad/vim-jade'
+Bundle 'Handlebars'
 
 " }}}
 
@@ -154,6 +155,7 @@ set background=light
 "let g:solarized_termcolors=256
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
+let g:airline_exclude_preview=1
 colorscheme solarized
 
 " }}}
@@ -218,7 +220,6 @@ set backspace=indent,eol,start
 
 " Use autoindention
 set autoindent
-autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 
 " All tabs will be replaced by spaces
 set expandtab
@@ -254,11 +255,12 @@ set iskeyword+=-
 set omnifunc=syntaxcomplete#Complete
 
  "Completion depends on filetype
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS et ts=4 sw=4 sts=4
-autocmd FileType html,markdown,jst setlocal omnifunc=htmlcomplete#CompleteTags et ts=4 sw=4 sts=4
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS et ts=4 sw=4 sts=4
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags et ts=4 sw=4 sts=4
+autocmd FileType css setlocal et ts=4 sw=4 sts=4
+autocmd FileType html,markdown,jst setlocal et ts=4 sw=4 sts=4
+autocmd FileType javascript setlocal et ts=4 sw=4 sts=4
+autocmd FileType xml setlocal et ts=4 sw=4 sts=4
 autocmd FileType eruby setlocal et ts=2 sw=2 sts=2
+autocmd FileType coffee setlocal et ts=2 sw=2 sts=2
 
 " }}}
 
