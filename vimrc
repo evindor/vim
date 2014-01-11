@@ -1,16 +1,20 @@
-" No need to be compatible with old vi
+" === No need to be compatible with old vi
+" {{{
+
 set nocompatible
 filetype off
+
+" }}}
+" === Load vundle
+" {{{
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-"
-" Bundles!
-"
+" }}}
+" === Bundles!
 " {{{
 
-" Github
 Bundle 'gmarik/vundle'
 Bundle 'mileszs/ack.vim'
 Bundle 'vim-scripts/bufexplorer.zip'
@@ -25,22 +29,18 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'briancollins/vim-jst'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'jonathanfilip/vim-lucius'
-Bundle 'walm/jshint.vim'
-Bundle 'scrooloose/syntastic'
-"Bundle 'ervandew/supertab'
+Bundle 'ervandew/supertab'
 Bundle 'evindor/vim-rusmode'
 Bundle 'groenewege/vim-less'
-Bundle 'evindor/YouCompleteMe'
 Bundle 'digitaltoad/vim-jade'
 Bundle 'Handlebars'
-
-" }}}
+Bundle 'vim-stylus'
+"Bundle 'marijnh/tern_for_vim'
 
 filetype plugin indent on
 
-"
-" Fix russian keys input
-"
+" }}}
+" === Fix typos (Wq, WQ, etc)
 " {{{
 
 :command WQ wq
@@ -50,21 +50,12 @@ filetype plugin indent on
 :command Qa qa
 
 " }}}
-
-" Set the <Leader> for combo commands
-let mapleader = ","
+" === Buffers and files
+" {{{
 
 set clipboard=unnamed
-set diffopt+=iwhite
-set shell=zsh
-if has("gui_macvim")
-    let macvim_skip_cmd_opt_movement = 1
-endif
 
-"
-" BUFFERS AND FILES
-"
-" {{{
+set shell=zsh
 
 " Save file content whenere we leave current buffer or close window
 set autowriteall
@@ -85,10 +76,7 @@ set updatecount=50
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g`\"" | endif
 
 " }}}
-
-"
-" INTERFACE
-"
+" === Interface
 " {{{
 
 " Mouse clicking
@@ -130,7 +118,7 @@ set title
 " Indicate a fast terminal connection
 set ttyfast
 
-" Show PEP8 line length border
+" Show line length border
 autocmd FileType python setlocal colorcolumn=80
 autocmd FileType javascript setlocal colorcolumn=80
 autocmd FileType coffee setlocal colorcolumn=80
@@ -142,13 +130,11 @@ map <C-H> <C-W>h
 map <C-L> <C-W>l
 
 " }}}
-
-"
-" THEME AND HIGHLITING
-"
+" === Theme and highliting
 " {{{
 
 syntax enable
+set diffopt+=iwhite
 let python_highlight_all=1
 set t_Co=256
 set background=light
@@ -159,10 +145,7 @@ let g:airline_exclude_preview=1
 colorscheme solarized
 
 " }}}
-
-"
-" SEARCH AND REPLACE
-"
+" === Search and replace
 " {{{
 
 " All matches in a line are substituted instead of one
@@ -190,10 +173,7 @@ set wrapscan
 nmap  <Space> :set invhls<cr>:set hls?<cr>
 
 " }}}
-
-"
-" COMMAND-LINE COMPLETION
-"
+" === Command-line completion
 " {{{
 
 " Ignore certain types of files on completion
@@ -209,10 +189,7 @@ set wildmenu
 set wildmode=list:longest,full
 
 " }}}
-
-"
-" FORMATTING AND EDITING
-"
+" === Formatting and editing
 " {{{
 
 " Allow backspacing over everything
@@ -240,11 +217,12 @@ set tabstop=4
 vnoremap < <gv
 vnoremap > >gv
 
-" }}}
+if has("gui_macvim")
+    let macvim_skip_cmd_opt_movement = 1
+endif
 
-"
-" COMPLETION
-"
+" }}}
+" === Completion
 " {{{
 
 " Specify how keyword completion should work
@@ -263,39 +241,30 @@ autocmd FileType eruby setlocal et ts=2 sw=2 sts=2
 autocmd FileType coffee setlocal et ts=2 sw=2 sts=2
 
 " }}}
-
-"
-" PLUGINS
-"
+" === Plugins settings and mappings
 " {{{
 
 " Set the tags files to be the following and F4 to re-build tags file
 
+" Set the <Leader> for combo commands
+let mapleader = ","
+
 " Nerd tree toggle
 nmap <silent> <Leader>r :NERDTreeToggle<CR>
 nmap <silent> <Leader>e :BufExplorer<CR>
-nmap <silent> <Leader>s :SyntasticToggleMode<CR>
 nmap <silent> <Leader>w :Errors<CR>
 nmap <silent> <Leader>d :bd<CR>
 nmap <silent> <Leader>n :bn<CR>
 nmap <silent> <Leader>p :bp<CR>
 nmap <silent> <Leader>q :q<CR>
-" Buffer Explorer
+
 let g:bufExplorerShowRelativePath=1
 let g:bufExplorerSortBy='name'
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_custom_ignore = '\.sql$\|\.git$'
 let g:ctrlp_open_new_file = 't'
 let g:ctrlp_tabpage_position = 'al'
-let g:syntastic_mode_map = { 'mode': 'passive',
-                            \ 'active_filetypes': ['js', 'coffee', 'py'],
-                            \ 'passive_filetypes': ['jst', 'html'] }
-let g:syntastic_check_on_open=1
-let g:syntastic_auto_loc_list=1
-let g:syntastic_javascript_jshint_conf='~/.vim/jshint.json'
-let g:syntastic_coffee_lint_options='-f ~/.vim/coffeelint.json'
-let g:ycm_collect_identifiers_from_comments_and_strings = 1
-"let g:ycm_seed_identifiers_with_syntax = 1
+
 
 let NERDTreeIgnore=['\.pyc$']
 
