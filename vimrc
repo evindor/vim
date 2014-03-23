@@ -35,7 +35,8 @@ Bundle 'groenewege/vim-less'
 Bundle 'digitaltoad/vim-jade'
 Bundle 'Handlebars'
 Bundle 'vim-stylus'
-"Bundle 'marijnh/tern_for_vim'
+Bundle "mattn/emmet-vim"
+Bundle "moll/vim-node"
 
 filetype plugin indent on
 
@@ -43,11 +44,11 @@ filetype plugin indent on
 " === Fix typos (Wq, WQ, etc)
 " {{{
 
-:command WQ wq
-:command W w
-:command Q q
-:command Wq wq
-:command Qa qa
+:command! WQ wq
+:command! W w
+:command! Q q
+:command! Wq wq
+:command! Qa qa
 
 " }}}
 " === Buffers and files
@@ -265,7 +266,19 @@ let g:ctrlp_custom_ignore = '\.sql$\|\.git$'
 let g:ctrlp_open_new_file = 't'
 let g:ctrlp_tabpage_position = 'al'
 
+let g:user_emmet_mode='i'
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
+let g:user_emmet_leader_key = '<c-e>'
 
 let NERDTreeIgnore=['\.pyc$']
+
+" }}}
+" === Abbreviations
+" {{{
+
+iabbrev fucntion function
+iabbrev cosnole console
+iabbrev consoel console
 
 " }}}
