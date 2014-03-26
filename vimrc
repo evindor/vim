@@ -49,6 +49,7 @@ filetype plugin indent on
 :command! Q q
 :command! Wq wq
 :command! Qa qa
+nnoremap Q <nop>
 
 " }}}
 " === Buffers and files
