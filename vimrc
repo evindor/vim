@@ -283,3 +283,12 @@ iabbrev cosnole console
 iabbrev consoel console
 
 " }}}
+" === Autoreload vimrc
+" {{{
+
+augroup reload_vimrc " {
+    autocmd!
+    autocmd BufWritePost $MYVIMRC source $MYVIMRC
+augroup END " }
+
+" }}}
