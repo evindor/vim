@@ -139,7 +139,7 @@ syntax enable
 set diffopt+=iwhite
 let python_highlight_all=1
 set t_Co=256
-set background=light
+set background=dark
 "let g:solarized_termcolors=256
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
@@ -223,6 +223,9 @@ if has("gui_macvim")
     let macvim_skip_cmd_opt_movement = 1
 endif
 
+" Set view for hidden characters
+set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
+
 " }}}
 " === Completion
 " {{{
@@ -259,6 +262,7 @@ nmap <silent> <Leader>d :bd<CR>
 nmap <silent> <Leader>n :bn<CR>
 nmap <silent> <Leader>p :bp<CR>
 nmap <silent> <Leader>q :q<CR>
+nmap <silent> <Leader>l :set list!<CR>
 
 let g:bufExplorerShowRelativePath=1
 let g:bufExplorerSortBy='name'
