@@ -37,6 +37,7 @@ Bundle 'Handlebars'
 Bundle 'vim-stylus'
 Bundle "mattn/emmet-vim"
 Bundle "moll/vim-node"
+Bundle "embear/vim-localvimrc"
 
 filetype plugin indent on
 
@@ -275,6 +276,7 @@ let g:user_emmet_mode='i'
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
 let g:user_emmet_leader_key = '<c-e>'
+let g:localvimrc_persistent = 2
 
 let NERDTreeIgnore=['\.pyc$']
 
