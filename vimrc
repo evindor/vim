@@ -38,6 +38,7 @@ Bundle 'vim-stylus'
 Bundle "mattn/emmet-vim"
 Bundle "moll/vim-node"
 Bundle "embear/vim-localvimrc"
+Bundle "aaronbieber/vim-quicktask"
 
 filetype plugin indent on
 
