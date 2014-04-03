@@ -27,7 +27,6 @@ Bundle 'bling/vim-airline'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'briancollins/vim-jst'
-Bundle 'altercation/vim-colors-solarized'
 Bundle 'jonathanfilip/vim-lucius'
 Bundle 'ervandew/supertab'
 Bundle 'evindor/vim-rusmode'
@@ -39,6 +38,7 @@ Bundle "mattn/emmet-vim"
 Bundle "moll/vim-node"
 Bundle "embear/vim-localvimrc"
 Bundle "aaronbieber/vim-quicktask"
+Bundle "tomasr/molokai"
 
 filetype plugin indent on
 
@@ -122,6 +122,9 @@ set title
 " Indicate a fast terminal connection
 set ttyfast
 
+" Automatically load a changed file
+set autoread
+
 " Show line length border
 autocmd FileType python setlocal colorcolumn=80
 autocmd FileType javascript setlocal colorcolumn=80
@@ -142,11 +145,11 @@ set diffopt+=iwhite
 let python_highlight_all=1
 set t_Co=256
 set background=dark
-"let g:solarized_termcolors=256
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline_exclude_preview=1
-colorscheme solarized
+let g:molokai_original=1
+colorscheme molokai
 
 " }}}
 " === Search and replace
@@ -266,6 +269,7 @@ nmap <silent> <Leader>p :bp<CR>
 nmap <silent> <Leader>q :q<CR>
 nmap <silent> <Leader>l :set list!<CR>
 
+
 let g:bufExplorerShowRelativePath=1
 let g:bufExplorerSortBy='name'
 let g:ctrlp_map = '<c-p>'
@@ -288,6 +292,7 @@ let NERDTreeIgnore=['\.pyc$']
 iabbrev fucntion function
 iabbrev cosnole console
 iabbrev consoel console
+iabbrev cosnoel console
 
 " }}}
 " === Autoreload vimrc
