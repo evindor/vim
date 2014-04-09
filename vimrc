@@ -34,10 +34,8 @@ Bundle 'groenewege/vim-less'
 Bundle 'digitaltoad/vim-jade'
 Bundle 'Handlebars'
 Bundle 'vim-stylus'
-Bundle "mattn/emmet-vim"
 Bundle "moll/vim-node"
 Bundle "embear/vim-localvimrc"
-Bundle "aaronbieber/vim-quicktask"
 Bundle "tomasr/molokai"
 
 filetype plugin indent on
@@ -277,10 +275,6 @@ let g:ctrlp_custom_ignore = '\.sql$\|\.git$'
 let g:ctrlp_open_new_file = 't'
 let g:ctrlp_tabpage_position = 'al'
 
-let g:user_emmet_mode='i'
-let g:user_emmet_install_global = 0
-autocmd FileType html,css EmmetInstall
-let g:user_emmet_leader_key = '<c-e>'
 let g:localvimrc_persistent = 2
 
 let NERDTreeIgnore=['\.pyc$']
