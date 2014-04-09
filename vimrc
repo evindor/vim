@@ -37,6 +37,7 @@ Bundle 'vim-stylus'
 Bundle "moll/vim-node"
 Bundle "embear/vim-localvimrc"
 Bundle "tomasr/molokai"
+Bundle "tpope/vim-fireplace"
 
 filetype plugin indent on
 
