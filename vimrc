@@ -38,6 +38,12 @@ Bundle "moll/vim-node"
 Bundle "embear/vim-localvimrc"
 Bundle "tomasr/molokai"
 Bundle "tpope/vim-fireplace"
+Bundle "guns/vim-clojure-static"
+Bundle "sjl/gundo.vim"
+Bundle "gcmt/wildfire.vim"
+Bundle "ciaranm/detectindent"
+Bundle "nono/vim-handlebars"
+Bundle "vimwiki/vimwiki"
 
 filetype plugin indent on
 
@@ -248,7 +254,7 @@ autocmd FileType javascript setlocal et ts=4 sw=4 sts=4
 autocmd FileType xml setlocal et ts=4 sw=4 sts=4
 autocmd FileType eruby setlocal et ts=2 sw=2 sts=2
 autocmd FileType coffee setlocal et ts=2 sw=2 sts=2
-
+autocmd FileType * :DetectIndent
 " }}}
 " === Plugins settings and mappings
 " {{{
@@ -261,23 +267,22 @@ let mapleader = ","
 " Nerd tree toggle
 nmap <silent> <Leader>r :NERDTreeToggle<CR>
 nmap <silent> <Leader>e :BufExplorer<CR>
-nmap <silent> <Leader>w :Errors<CR>
 nmap <silent> <Leader>d :bd<CR>
 nmap <silent> <Leader>n :bn<CR>
 nmap <silent> <Leader>p :bp<CR>
 nmap <silent> <Leader>q :q<CR>
 nmap <silent> <Leader>l :set list!<CR>
+nmap <silent> <Leader>v :e $MYVIMRC<CR>
 
 
 let g:bufExplorerShowRelativePath=1
-let g:bufExplorerSortBy='name'
+let g:bufExplorerSortBy='mru'        " Sort by most recently used.
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_custom_ignore = '\.sql$\|\.git$'
 let g:ctrlp_open_new_file = 't'
 let g:ctrlp_tabpage_position = 'al'
 
 let g:localvimrc_persistent = 2
-
 let NERDTreeIgnore=['\.pyc$']
 
 " }}}
