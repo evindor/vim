@@ -44,6 +44,7 @@ Bundle "gcmt/wildfire.vim"
 Bundle "ciaranm/detectindent"
 Bundle "nono/vim-handlebars"
 Bundle "vimwiki/vimwiki"
+Bundle "terryma/vim-smooth-scroll"
 
 filetype plugin indent on
 
@@ -248,13 +249,17 @@ set iskeyword+=-
 set omnifunc=syntaxcomplete#Complete
 
  "Completion depends on filetype
-autocmd FileType css setlocal et ts=4 sw=4 sts=4
-autocmd FileType html,markdown,jst setlocal et ts=4 sw=4 sts=4
-autocmd FileType javascript setlocal et ts=4 sw=4 sts=4
-autocmd FileType xml setlocal et ts=4 sw=4 sts=4
-autocmd FileType eruby setlocal et ts=2 sw=2 sts=2
-autocmd FileType coffee setlocal et ts=2 sw=2 sts=2
-autocmd FileType * :DetectIndent
+augroup completion
+    autocmd!
+    autocmd FileType css setlocal et ts=4 sw=4 sts=4
+    autocmd FileType html,markdown,jst setlocal et ts=4 sw=4 sts=4
+    autocmd FileType javascript setlocal et ts=4 sw=4 sts=4
+    autocmd FileType xml setlocal et ts=4 sw=4 sts=4
+    autocmd FileType eruby setlocal et ts=2 sw=2 sts=2
+    autocmd FileType coffee setlocal et ts=2 sw=2 sts=2
+    autocmd FileType * :DetectIndent
+    autocmd BufNewFile,BufReadPost *.cljx setfiletype clojure    
+augroup END
 " }}}
 " === Plugins settings and mappings
 " {{{
@@ -273,6 +278,11 @@ nmap <silent> <Leader>p :bp<CR>
 nmap <silent> <Leader>q :q<CR>
 nmap <silent> <Leader>l :set list!<CR>
 nmap <silent> <Leader>v :e $MYVIMRC<CR>
+
+noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 10, 2)<CR>
+noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 10, 2)<CR>
+noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 20, 4)<CR>
+noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 20, 4)<CR>
 
 
 let g:bufExplorerShowRelativePath=1
