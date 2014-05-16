@@ -1,189 +1,15 @@
-" === No need to be compatible with old vi
-set nocompatible
-filetype off
+source ~/.vim/bundles.vim
 
-" === Load vundle
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+let mapleader = ","
 
-" === Bundles!
-Bundle 'gmarik/vundle'
-Bundle 'mileszs/ack.vim'
-Bundle 'vim-scripts/bufexplorer.zip'
-Bundle 'Raimondi/delimitMate'
-Bundle 'scrooloose/nerdtree'
-Bundle 'tpope/vim-fugitive'
-Bundle 'kien/ctrlp.vim'
-Bundle 'vim-scripts/JavaScript-syntax'
-Bundle 'bling/vim-airline'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'briancollins/vim-jst'
-Bundle 'jonathanfilip/vim-lucius'
-Bundle 'ervandew/supertab'
-Bundle 'evindor/vim-rusmode'
-Bundle 'groenewege/vim-less'
-Bundle 'digitaltoad/vim-jade'
-Bundle 'Handlebars'
-Bundle 'vim-stylus'
-Bundle "moll/vim-node"
-Bundle "embear/vim-localvimrc"
-Bundle "tomasr/molokai"
-Bundle "tpope/vim-fireplace"
-Bundle "guns/vim-clojure-static"
-Bundle "sjl/gundo.vim"
-Bundle "gcmt/wildfire.vim"
-Bundle "ciaranm/detectindent"
-Bundle "nono/vim-handlebars"
-Bundle "vimwiki/vimwiki"
-Bundle "terryma/vim-smooth-scroll"
-Bundle "Shutnik/jshint2.vim"
-
-filetype plugin indent on
-
-" === Fix typos (Wq, WQ, etc)
-:command! WQ wq
-:command! W w
-:command! Q q
-:command! Wq wq
-:command! Qa qa
-nnoremap Q <nop>
-
-" === Buffers and files
-set clipboard=unnamed
-
-set shell=zsh
-
-" Save file content whenere we leave current buffer or close window
-set autowriteall
-
-" Use UTF-8 as the default buffer encoding
-set encoding=utf-8
-
-" File encogings list
-set fileencodings=utf-8,windows-1251,iso-8859-15,koi8-r
-
-" Mark abandoned buffers as hidden instead of unload them
-set hidden
-
-" Write swap file to disk after every 50 characters
-set updatecount=50
-
-" Jump to the last known position in a file just after opening it, if the '" mark is set
-augroup position
-    autocmd!
-    autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g`\"" | endif
-augroup END
-
-" === Interface
-
-" Mouse clicking
-set mouse=a
-
-" I want to see where I am
-set cursorline
-
-" Use markers to specify folds
-set foldmethod=marker
-
-" Always show status line, even for one window
-set laststatus=2
-
-" Do not wrap long lines, because it is ugly
-set nowrap
-
-" Show line numbers
-set number
-
-" Show line, column number, and relative position within a file in the status line
-" set ruler
-
-" Scroll when cursor gets within 3 characters of top/bottom edge
-set scrolloff=3
-
-" Show (partial) command in the last line of the screen
-set showcmd
-
-" When a bracket is inserted, briefly jump to a matching one
-set showmatch
-
-" At least let yourself know what mode you're in
-set showmode
-
-" Show buffer name in the window's title
-set title
-
-" Indicate a fast terminal connection
-set ttyfast
-
-" Automatically load a changed file
-set autoread
-
-" Show line length border
-augroup line_len
-    autocmd!
-    autocmd FileType python setlocal colorcolumn=80
-    autocmd FileType javascript setlocal colorcolumn=80
-    autocmd FileType coffee setlocal colorcolumn=80
-augroup END
-
-" Switch between windows faster
-map <C-J> <C-W>j
-map <C-K> <C-W>k
-map <C-H> <C-W>h
-map <C-L> <C-W>l
-
-" === Theme and highliting
-syntax enable
-set diffopt+=iwhite
-let python_highlight_all=1
-set t_Co=256
-set background=dark
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
-let g:airline_exclude_preview=1
-let g:molokai_original=1
-colorscheme molokai
-
-" === Search and replace
-
-" All matches in a line are substituted instead of one
-set gdefault
-
-" Remember up to 100 'colon' commmands and search patterns
-set history=100
-
-" Highlight search results
-set hlsearch
-
-" Enable incremental search
-set incsearch
-
-" Case insensetive search
-set ignorecase
-
-" Case sensitive search if search string contains upper case characters
-set smartcase
-
-" Set the search scan to wrap lines
-set wrapscan
-
-" Turn off highlight search
-nmap  <Space> :set invhls<cr>:set hls?<cr>
-
-" === Command-line completion
-
-" Ignore certain types of files on completion
-set wildignore+=*.o,*.obj,*.pyc,.git
-
-" Use menu to show command-line completion (in 'full' case)
-set wildmenu
-
-" Set command-line completion mode:
-"   - on first <Tab>, when more than one match, list all matches and complete
-"     the longest common  string
-"   - on second <Tab>, complete the next full match and show menu
-set wildmode=list:longest,full
+source ~/.vim/abbreviations.vim
+source ~/.vim/buffers-files.vim
+source ~/.vim/interface.vim
+source ~/.vim/theme.vim
+source ~/.vim/bundle-settings.vim
+source ~/.vim/keys.vim
+source ~/.vim/search.vim
+source ~/.vim/wild.vim
 
 " === Formatting and editing
 
@@ -212,10 +38,6 @@ set tabstop=4
 vnoremap < <gv
 vnoremap > >gv
 
-if has("gui_macvim")
-    let macvim_skip_cmd_opt_movement = 1
-endif
-
 " Set view for hidden characters
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 
@@ -241,49 +63,8 @@ augroup completion
     autocmd BufNewFile,BufReadPost *.cljx setfiletype clojure    
 augroup END
 
-" === Plugins settings and mappings
-
-" Set the tags files to be the following and F4 to re-build tags file
-
-" Set the <Leader> for combo commands
-let mapleader = ","
-
-" Nerd tree toggle
-nmap <silent> <Leader>r :NERDTreeToggle<CR>
-nmap <silent> <Leader>e :BufExplorer<CR>
-nmap <silent> <Leader>d :bd<CR>
-nmap <silent> <Leader>n :bn<CR>
-nmap <silent> <Leader>p :bp<CR>
-nmap <silent> <Leader>q :q<CR>
-nmap <silent> <Leader>l :set list!<CR>
-nmap <silent> <Leader>v :e $MYVIMRC<CR>
-
-noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 10, 2)<CR>
-noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 10, 2)<CR>
-noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 20, 4)<CR>
-noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 20, 4)<CR>
-
-
-let g:bufExplorerShowRelativePath=1
-let g:bufExplorerSortBy='mru'        " Sort by most recently used.
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_custom_ignore = '\.sql$\|\.git$'
-let g:ctrlp_open_new_file = 't'
-let g:ctrlp_tabpage_position = 'al'
-let g:jshint2_save = 1
-
-let g:localvimrc_persistent = 2
-let NERDTreeIgnore=['\.pyc$']
-
-" === Abbreviations
-iabbrev fucntion function
-iabbrev cosnole console
-iabbrev consoel console
-iabbrev cosnoel console
-
 " === Autoreload vimrc
 augroup reload_vimrc
     autocmd!
     autocmd BufWritePost $MYVIMRC source $MYVIMRC
 augroup END
-
