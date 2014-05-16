@@ -1,20 +1,12 @@
 " === No need to be compatible with old vi
-" {{{
-
 set nocompatible
 filetype off
 
-" }}}
 " === Load vundle
-" {{{
-
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-" }}}
 " === Bundles!
-" {{{
-
 Bundle 'gmarik/vundle'
 Bundle 'mileszs/ack.vim'
 Bundle 'vim-scripts/bufexplorer.zip'
@@ -45,13 +37,11 @@ Bundle "ciaranm/detectindent"
 Bundle "nono/vim-handlebars"
 Bundle "vimwiki/vimwiki"
 Bundle "terryma/vim-smooth-scroll"
+Bundle "Shutnik/jshint2.vim"
 
 filetype plugin indent on
 
-" }}}
 " === Fix typos (Wq, WQ, etc)
-" {{{
-
 :command! WQ wq
 :command! W w
 :command! Q q
@@ -59,10 +49,7 @@ filetype plugin indent on
 :command! Qa qa
 nnoremap Q <nop>
 
-" }}}
 " === Buffers and files
-" {{{
-
 set clipboard=unnamed
 
 set shell=zsh
@@ -83,11 +70,12 @@ set hidden
 set updatecount=50
 
 " Jump to the last known position in a file just after opening it, if the '" mark is set
-autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g`\"" | endif
+augroup position
+    autocmd!
+    autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g`\"" | endif
+augroup END
 
-" }}}
 " === Interface
-" {{{
 
 " Mouse clicking
 set mouse=a
@@ -132,9 +120,12 @@ set ttyfast
 set autoread
 
 " Show line length border
-autocmd FileType python setlocal colorcolumn=80
-autocmd FileType javascript setlocal colorcolumn=80
-autocmd FileType coffee setlocal colorcolumn=80
+augroup line_len
+    autocmd!
+    autocmd FileType python setlocal colorcolumn=80
+    autocmd FileType javascript setlocal colorcolumn=80
+    autocmd FileType coffee setlocal colorcolumn=80
+augroup END
 
 " Switch between windows faster
 map <C-J> <C-W>j
@@ -142,10 +133,7 @@ map <C-K> <C-W>k
 map <C-H> <C-W>h
 map <C-L> <C-W>l
 
-" }}}
 " === Theme and highliting
-" {{{
-
 syntax enable
 set diffopt+=iwhite
 let python_highlight_all=1
@@ -157,9 +145,7 @@ let g:airline_exclude_preview=1
 let g:molokai_original=1
 colorscheme molokai
 
-" }}}
 " === Search and replace
-" {{{
 
 " All matches in a line are substituted instead of one
 set gdefault
@@ -185,9 +171,7 @@ set wrapscan
 " Turn off highlight search
 nmap  <Space> :set invhls<cr>:set hls?<cr>
 
-" }}}
 " === Command-line completion
-" {{{
 
 " Ignore certain types of files on completion
 set wildignore+=*.o,*.obj,*.pyc,.git
@@ -201,9 +185,7 @@ set wildmenu
 "   - on second <Tab>, complete the next full match and show menu
 set wildmode=list:longest,full
 
-" }}}
 " === Formatting and editing
-" {{{
 
 " Allow backspacing over everything
 set backspace=indent,eol,start
@@ -237,9 +219,7 @@ endif
 " Set view for hidden characters
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 
-" }}}
 " === Completion
-" {{{
 
 " Specify how keyword completion should work
 set complete=.,w,b,t
@@ -260,9 +240,8 @@ augroup completion
     autocmd FileType * :DetectIndent
     autocmd BufNewFile,BufReadPost *.cljx setfiletype clojure    
 augroup END
-" }}}
+
 " === Plugins settings and mappings
-" {{{
 
 " Set the tags files to be the following and F4 to re-build tags file
 
@@ -291,26 +270,20 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_custom_ignore = '\.sql$\|\.git$'
 let g:ctrlp_open_new_file = 't'
 let g:ctrlp_tabpage_position = 'al'
+let g:jshint2_save = 1
 
 let g:localvimrc_persistent = 2
 let NERDTreeIgnore=['\.pyc$']
 
-" }}}
 " === Abbreviations
-" {{{
-
 iabbrev fucntion function
 iabbrev cosnole console
 iabbrev consoel console
 iabbrev cosnoel console
 
-" }}}
 " === Autoreload vimrc
-" {{{
-
-augroup reload_vimrc " {
+augroup reload_vimrc
     autocmd!
     autocmd BufWritePost $MYVIMRC source $MYVIMRC
-augroup END " }
+augroup END
 
-" }}}
