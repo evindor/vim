@@ -1,10 +1,7 @@
 " === Command-line completion
 
-" Ignore certain types of files on completion
-set wildignore+=*.o,*.obj,*.pyc,.git
-
-" Use menu to show command-line completion (in 'full' case)
-set wildmenu
+set wildignore+=*.o,*.obj,*.pyc,.git " Ignore certain types of files on completion
+set wildmenu " Use menu to show command-line completion (in 'full' case)
 
 " Set command-line completion mode:
 "   - on first <Tab>, when more than one match, list all matches and complete

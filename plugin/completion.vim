@@ -2,5 +2,4 @@
 set complete=.,w,b,t
 set iskeyword+=-
 
-" Default syntax completion
-set omnifunc=syntaxcomplete#Complete
+set omnifunc=syntaxcomplete#Complete " Default syntax completion
