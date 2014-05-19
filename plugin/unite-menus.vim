@@ -7,10 +7,10 @@ let g:unite_source_menu_menus.vim.command_candidates = [
     \['Clean bundles', ':BundleClean'],
     \]
 
-let g:unite_source_menu_menus.indent = { 'description' : 'Vim settings', }
+let g:unite_source_menu_menus.indent = { 'description' : 'Indentation settings', }
 let g:unite_source_menu_menus.indent.command_candidates = [
-    \['Set tabs', ':set noexpandtab'],
-    \['Set spaces', ':set expandtab'],
-    \['4 spaces indentation', ':setlocal ts=4 sw=4 sts=4'],
-    \['2 spaces indentation', ':setlocal ts=2 sw=2 sts=2'],
+    \['4 width / spaces indentation', ':set expandtab ts=4 sw=4 sts=4'],
+    \['2 width / spaces indentation', ':set expandtab ts=2 sw=2 sts=2'],
+    \['4 width / tabs indentation', ':set noexpandtab ts=4 sw=4 sts=4'],
+    \['2 width / tabs indentation', ':set noexpandtab ts=2 sw=2 sts=2'],
     \]

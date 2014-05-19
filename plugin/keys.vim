@@ -11,7 +11,7 @@ nmap <silent> <Leader>d :bd<CR>
 nmap <silent> <Leader>q :q<CR>
 nmap <silent> <Leader>l :set list!<CR>
 nmap <silent> <Leader>v :Unite menu:vim<CR>
-nmap <silent> <Leader>i :Unite menu:indent<CR>
+nmap <silent> <Leader>i :Unite -start-insert menu:indent<CR>
 
 " Smooth scroll bindings
 noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 10, 2)<CR>
