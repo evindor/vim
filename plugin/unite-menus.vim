@@ -3,6 +3,8 @@ let g:unite_source_menu_menus = {}
 let g:unite_source_menu_menus.vim = { 'description' : 'Vim settings', }
 let g:unite_source_menu_menus.vim.command_candidates = [
     \['Open vimrc', ':e $MYVIMRC'],
+    \['Open bundles', ':e ~/.vim/bundles.vim'],
+    \['Source this file', ':so %'],
     \['Install bundles', ':BundleInstall'],
     \['Clean bundles', ':BundleClean'],
     \]
