@@ -23,3 +23,5 @@ nnoremap <leader>p :<C-u>Unite -start-insert file_rec/async:!<CR>
 nnoremap \ :Unite grep:.<cr>
 nnoremap <silent> <Leader>e :Unite -no-split -buffer-name=buffer buffer<CR>
 nnoremap <silent> <Leader>m :Unite -buffer-name=recent -winheight=10 file_mru<cr>
+
+vnoremap / y/\V<c-r>"<CR>
