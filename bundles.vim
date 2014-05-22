@@ -6,7 +6,8 @@ call vundle#rc()
 Bundle "gmarik/vundle"
 
 " Syntax
-Bundle "vim-scripts/JavaScript-syntax"
+Bundle "jelera/vim-javascript-syntax"
+Bundle "pangloss/vim-javascript"
 Bundle "groenewege/vim-less"
 Bundle "digitaltoad/vim-jade"
 Bundle "vim-stylus"
