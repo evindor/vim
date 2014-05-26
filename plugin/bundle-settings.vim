@@ -29,10 +29,20 @@ call unite#filters#sorter_default#use(['sorter_rank'])
 call unite#custom#profile('files', 'filters', 'sorter_rank')
 call unite#custom#source('file_rec/async','sorters','sorter_rank')
 
-autocmd FileType unite call s:unite_settings() " Custom mappings for the unite buffer
+augroup delimitmate
+    autocmd!
+    autocmd FileType mail,text let b:delimitMate_autoclose = 0
+    autocmd FileType clojure let b:delimitMate_autoclose = 0
+augroup END
+
+augroup unite
+    autocmd!
+    autocmd FileType unite call s:unite_settings() " Custom mappings for the unite buffer
+augroup END
+
 function! s:unite_settings()
-		let b:SuperTabDisabled=1 " Play nice with supertab
-		" Enable navigation with control-j and control-k in insert mode
-		imap <buffer> <C-j>   <Plug>(unite_select_next_line)
-		imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
+        let b:SuperTabDisabled=1 " Play nice with supertab
+        " Enable navigation with control-j and control-k in insert mode
+        imap <buffer> <C-j>   <Plug>(unite_select_next_line)
+        imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
 endfunction
