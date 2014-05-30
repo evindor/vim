@@ -25,10 +25,10 @@ Bundle "bling/vim-airline"
 
 " Editing
 Bundle "Raimondi/delimitMate"
-Bundle "ervandew/supertab"
+"Bundle "ervandew/supertab"
+Bundle "Valloric/YouCompleteMe"
 Bundle "scrooloose/nerdcommenter"
 Bundle "gcmt/wildfire.vim"
-
 
 " Utility
 Bundle "mileszs/ack.vim"
@@ -40,10 +40,15 @@ Bundle "vimwiki/vimwiki"
 Bundle "terryma/vim-smooth-scroll"
 Bundle "Shougo/vimproc.vim"
 Bundle "Shougo/neomru.vim"
+Bundle "kien/ctrlp.vim"
 
 " Language specific
 Bundle "moll/vim-node"
-Bundle "tpope/vim-fireplace"
 Bundle "Shutnik/jshint2.vim"
+Bundle "tpope/vim-leiningen"
+Bundle "tpope/vim-fireplace"
+Bundle "tpope/vim-projectionist"
+Bundle "maksimr/vim-jsbeautify"
+Bundle "einars/js-beautify"
 
 filetype plugin indent on
