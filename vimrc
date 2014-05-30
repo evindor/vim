@@ -2,12 +2,6 @@ source ~/.vim/bundles.vim
 
 let mapleader = ","
 
-" Autoreload vimrc
-augroup reload_vimrc
-    autocmd!
-    autocmd BufWritePost $MYVIMRC source $MYVIMRC
-augroup END
-
 " ============================================================================
 " === Abbreviations ==========================================================
 iabbrev fucntion function
@@ -37,8 +31,8 @@ augroup position
     autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g`\"" | endif
 augroup END
 
-set complete=.,w,b,t " Specify how keyword completion should work
-set iskeyword+=-
+"set complete=.,w,b,t " Specify how keyword completion should work
+"set iskeyword+=-
 set omnifunc=syntaxcomplete#Complete " Default syntax completion
 
 " ============================================================================
@@ -65,6 +59,8 @@ let g:unite_winheight = 10
 let g:unite_split_rule = 'botright'
 let g:unite_prompt = '» '
 let g:unite_candidate_icon="▸"
+
+let g:ycm_seed_identifiers_with_syntax = 1
 
 let g:unite_source_file_rec_ignore_pattern = 'node_modules'
 
@@ -149,8 +145,9 @@ nmap <silent> <Leader>r :NERDTreeToggle<CR>
 nmap <silent> <Leader>d :bd<CR>
 nmap <silent> <Leader>q :q<CR>
 nmap <silent> <Leader>l :set list!<CR>
-nmap <silent> <Leader>v :Unite menu:vim<CR>
+nmap <silent> <Leader>v :Unite -start-insert menu:vim<CR>
 nmap <silent> <Leader>i :Unite -start-insert menu:indent<CR>
+nmap <silent> <Leader>x :Unite -start-insert menu:execute<CR>
 
 " Smooth scroll bindings
 noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 10, 2)<CR>
@@ -205,6 +202,13 @@ let g:unite_source_menu_menus.indent.command_candidates = [
     \['2 width / spaces indentation', ':set expandtab ts=2 sw=2 sts=2'],
     \['4 width / tabs indentation', ':set noexpandtab ts=4 sw=4 sts=4'],
     \['2 width / tabs indentation', ':set noexpandtab ts=2 sw=2 sts=2'],
+    \]
+
+let g:unite_source_menu_menus.execute = { 'description' : 'Execute various commands', }
+let g:unite_source_menu_menus.execute.command_candidates = [
+    \['Beautify current JS file', ':call JsBeautify()'],
+    \['Beautify current HMTL file', ':call HtmlBeautify()'],
+    \['Beautify current CSS file', ':call CSSBeautify()'],
     \]
 " ============================================================================
 " === Command-line completion ================================================
