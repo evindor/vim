@@ -3,4 +3,6 @@ if has("gui_macvim")
     set gfn=Monaco\ for\ Powerline:h13
     set guioptions-=r
     set guioptions-=L
+    set lines=999
+    set columns=999
 endif
