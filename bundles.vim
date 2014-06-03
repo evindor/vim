@@ -29,6 +29,7 @@ Bundle "Raimondi/delimitMate"
 Bundle "Valloric/YouCompleteMe"
 Bundle "scrooloose/nerdcommenter"
 Bundle "gcmt/wildfire.vim"
+Bundle "Lokaltog/vim-easymotion"
 
 " Utility
 Bundle "mileszs/ack.vim"
@@ -50,5 +51,6 @@ Bundle "tpope/vim-fireplace"
 Bundle "tpope/vim-projectionist"
 Bundle "maksimr/vim-jsbeautify"
 Bundle "einars/js-beautify"
+Bundle "evindor/vim-jake"
 
 filetype plugin indent on
