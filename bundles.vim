@@ -52,5 +52,6 @@ Bundle "tpope/vim-projectionist"
 Bundle "maksimr/vim-jsbeautify"
 Bundle "einars/js-beautify"
 Bundle "evindor/vim-jake"
+Bundle "marijnh/tern_for_vim"
 
 filetype plugin indent on

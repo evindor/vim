@@ -162,6 +162,7 @@ nnoremap <silent> <Leader>m :Unite -buffer-name=recent -winheight=10 file_mru<cr
 
 vnoremap / y/\V<c-r>"<CR>
 
+
 " ============================================================================
 " === Search =================================================================
 set gdefault " All matches in a line are substituted instead of one
