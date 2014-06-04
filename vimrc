@@ -61,6 +61,7 @@ let g:unite_prompt = '» '
 let g:unite_candidate_icon="▸"
 
 let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
 
 let g:unite_source_file_rec_ignore_pattern = 'node_modules'
 
