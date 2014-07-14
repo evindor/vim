@@ -33,7 +33,7 @@ augroup END
 
 "set complete=.,w,b,t " Specify how keyword completion should work
 "set iskeyword+=-
-set omnifunc=syntaxcomplete#Complete " Default syntax completion
+"set omnifunc=syntaxcomplete#Complete " Default syntax completion
 
 " ============================================================================
 " === Plugins settings =======================================================
@@ -211,6 +211,7 @@ let g:unite_source_menu_menus.execute.command_candidates = [
     \['Beautify current JS file', ':call JsBeautify()'],
     \['Beautify current HMTL file', ':call HtmlBeautify()'],
     \['Beautify current CSS file', ':call CSSBeautify()'],
+    \['Remove console.logs from current file with confirm', ':%s/.*console.*\n//c'],
     \]
 " ============================================================================
 " === Command-line completion ================================================
