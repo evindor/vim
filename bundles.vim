@@ -53,5 +53,6 @@ Bundle "maksimr/vim-jsbeautify"
 Bundle "einars/js-beautify"
 Bundle "evindor/vim-jake"
 Bundle "marijnh/tern_for_vim"
+Bundle "amdt/vim-niji"
 
 filetype plugin indent on

@@ -43,7 +43,8 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_custom_ignore = '\.sql$\|\.git$'
 let g:ctrlp_open_new_file = 't'
 let g:ctrlp_tabpage_position = 'al'
-"let g:jshint2_save = 1
+
+let g:niji_matching_characters = [['(', ')']]
 
 let g:localvimrc_persistent = 2
 let NERDTreeIgnore=['\.pyc$']
@@ -212,6 +213,8 @@ let g:unite_source_menu_menus.execute.command_candidates = [
     \['Beautify current HMTL file', ':call HtmlBeautify()'],
     \['Beautify current CSS file', ':call CSSBeautify()'],
     \['Remove console.logs from current file with confirm', ':%s/.*console.*\n//c'],
+    \['Find AMD dependencies with madge', ':! madge -n -f amd -d %:t:r %:p:h'],
+    \['Toggle JSHint', ':let g:jshint2_save = 1 - g:jshint2_save | :echo "JSHint ".(g:jshint2_save?"On":"Off")'],
     \]
 " ============================================================================
 " === Command-line completion ================================================
