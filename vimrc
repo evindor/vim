@@ -1,4 +1,4 @@
-source ~/.vim/bundles.vim
+source ~/.vim/plugins.vim
 
 let mapleader = ","
 
