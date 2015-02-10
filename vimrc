@@ -5,9 +5,12 @@ let mapleader = ","
 " ============================================================================
 " === Abbreviations ==========================================================
 iabbrev fucntion function
+iabbrev fnuction function
+                        
 iabbrev cosnole console
 iabbrev consoel console
 iabbrev cosnoel console
+iabbrev cosneol console
 
 :command! WQ wq
 :command! W w
@@ -32,7 +35,8 @@ augroup position
 augroup END
 
 "set complete=.,w,b,t " Specify how keyword completion should work
-"set iskeyword+=-
+set iskeyword+=-
+set iskeyword-=.
 "set omnifunc=syntaxcomplete#Complete " Default syntax completion
 
 " ============================================================================
@@ -53,7 +57,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline_exclude_preview=1
 
-let g:detectindent_preferred_indent = 4
+let g:detectindent_preferred_indent = 2
 let g:detectindent_preferred_expandtab = 1
 
 let g:unite_winheight = 10
@@ -96,9 +100,9 @@ set backspace=indent,eol,start " Allow backspacing over everything
 set autoindent " Use autoindention
 set expandtab " All tabs will be replaced by spaces
 set shiftround " Round indent to multiple of 'shiftwidth' for > and < commands
-set shiftwidth=4 " Use 4 spaces for (auto)indent
-set softtabstop=4 " Use 4 spaces for inserting <Tab> or using <BS>
-set tabstop=4 " Use 4 spaces for <Tab> and :retab
+set shiftwidth=2 " Use 2 spaces for (auto)indent
+set softtabstop=2 " Use 2 spaces for inserting <Tab> or using <BS>
+set tabstop=2 " Use 2 spaces for <Tab> and :retab
 " Visual shifting (does not exit Visual mode)
 vnoremap < <gv
 vnoremap > >gv

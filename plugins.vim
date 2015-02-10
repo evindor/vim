@@ -40,9 +40,6 @@ Plug 'kien/ctrlp.vim'
 Plug 'moll/vim-node'
 Plug 'gorodinskiy/vim-coloresque'
 Plug 'Shutnik/jshint2.vim'
-Plug 'tpope/vim-leiningen', { 'for': 'clojure' }
-Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-Plug 'tpope/vim-projectionist'
 Plug 'maksimr/vim-jsbeautify'
 Plug 'einars/js-beautify'
 Plug 'evindor/vim-jake', { 'on': 'JakeConnect'}
