@@ -155,6 +155,7 @@ nmap <silent> <Leader>v :Unite -start-insert menu:vim<CR>
 nmap <silent> <Leader>i :Unite -start-insert menu:indent<CR>
 nmap <silent> <Leader>x :Unite -start-insert menu:execute<CR>
 nmap <silent> <Leader>g :GitGutterToggle<CR>
+nmap <silent> <Leader>y :SyntasticToggleMode<CR>
 nnoremap <silent> <Leader>e :BufExplorer<CR>
 
 " Smooth scroll bindings
@@ -249,8 +250,12 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_mode_map = {
+    \ "mode": "passive",
+    \ "active_filetypes": [],
+    \ "passive_filetypes": [] }
 let g:syntastic_loc_list_height=5
-let g:jsx_ext_required = 0
 "let g:syntastic_debug = 3
+let g:jsx_ext_required = 0
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 tnoremap <Esc> <C-\><C-n>
