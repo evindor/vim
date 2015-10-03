@@ -46,7 +46,6 @@ Plug 'ryanss/vim-hackernews'
 Plug 'wincent/terminus'
 Plug 'wincent/ferret'
 "Plug 'janko-m/vim-test'
-Plug 'dhruvasagar/vim-dotoo'
 Plug 'keith/gist.vim'
 
 " Language specific
