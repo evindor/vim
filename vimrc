@@ -1,4 +1,4 @@
-source ~/.vim/plugins.vim
+source ~/.nvim/plugins.vim
 
 let mapleader = ","
 
@@ -16,12 +16,14 @@ iabbrev cosneol console
 :command! W w
 :command! Q q
 :command! Wq wq
+:command! Wqa wqa
 :command! Qa qa
 nnoremap Q <nop>
 
 " ============================================================================
 " === Buffer and files =======================================================
-set clipboard=unnamed
+"
+set clipboard=unnamedplus
 set shell=zsh
 set autowriteall " Save file content whenere we leave current buffer or close window
 set encoding=utf-8
@@ -34,8 +36,8 @@ augroup position
     autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g`\"" | endif
 augroup END
 
-"set complete=.,w,b,t " Specify how keyword completion should work
-set iskeyword+=-
+set complete=.,w,b,t,u " Specify how keyword completion should work
+"set iskeyword+=-
 set iskeyword-=.
 "set omnifunc=syntaxcomplete#Complete " Default syntax completion
 
@@ -44,14 +46,13 @@ set iskeyword-=.
 let g:bufExplorerShowRelativePath=1
 let g:bufExplorerSortBy='mru'        " Sort by most recently used.
 let g:ctrlp_map = '<c-p>'
-let g:ctrlp_custom_ignore = '\.sql$\|\.git$'
+let g:ctrlp_custom_ignore = '\.sql$\|\.git$\|node_modules'
 let g:ctrlp_open_new_file = 't'
 let g:ctrlp_tabpage_position = 'al'
 
-let g:niji_matching_characters = [['(', ')']]
-
 let g:localvimrc_persistent = 2
 let NERDTreeIgnore=['\.pyc$']
+let g:NERDTreeChDirMode=2
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
@@ -75,6 +76,8 @@ call unite#filters#sorter_default#use(['sorter_rank'])
 
 call unite#custom#profile('files', 'filters', 'sorter_rank')
 call unite#custom#source('file_rec/async','sorters','sorter_rank')
+
+let g:gitgutter_enabled = 0
 
 augroup delimitmate
     autocmd!
@@ -127,7 +130,6 @@ set showcmd " Show (partial) command in the last line of the screen
 set showmatch " When a bracket is inserted, briefly jump to a matching one
 set showmode " At least let yourself know what mode you're in
 set title " Show buffer name in the window's title
-set ttyfast " Indicate a fast terminal connection
 set autoread " Automatically load a changed file
 " Show line length border
 augroup line_len
@@ -140,20 +142,20 @@ augroup END
 " ============================================================================
 " === Key mappings ===========================================================
 " Switch between windows faster
-map <C-J> <C-W>j
-map <C-K> <C-W>k
-map <C-H> <C-W>h
-map <C-L> <C-W>l
-
-nnoremap ; :
+noremap <M-j> <C-W>j
+noremap <M-k> <C-W>k
+noremap <M-h> <C-W>h
+noremap <M-l> <C-W>l
 
 nmap <silent> <Leader>r :NERDTreeToggle<CR>
 nmap <silent> <Leader>d :bd<CR>
-nmap <silent> <Leader>q :q<CR>
+nmap <silent> <Leader>q ":q<CR>
 nmap <silent> <Leader>l :set list!<CR>
 nmap <silent> <Leader>v :Unite -start-insert menu:vim<CR>
 nmap <silent> <Leader>i :Unite -start-insert menu:indent<CR>
 nmap <silent> <Leader>x :Unite -start-insert menu:execute<CR>
+nmap <silent> <Leader>g :GitGutterToggle<CR>
+nnoremap <silent> <Leader>e :BufExplorer<CR>
 
 " Smooth scroll bindings
 noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 10, 2)<CR>
@@ -163,16 +165,12 @@ noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 20, 4)<CR>
 
 nnoremap <leader>p :<C-u>Unite -start-insert file_rec/async:!<CR>
 nnoremap \ :Unite grep:.<cr>
-nnoremap <silent> <Leader>e :Unite -no-split -buffer-name=buffer buffer<CR>
 nnoremap <silent> <Leader>m :Unite -buffer-name=recent -winheight=10 file_mru<cr>
-
-vnoremap / y/\V<c-r>"<CR>
 
 
 " ============================================================================
 " === Search =================================================================
 set gdefault " All matches in a line are substituted instead of one
-set history=100 " Remember up to 100 'colon' commmands and search patterns
 set hlsearch " Highlight search results
 set incsearch " Enable incremental search
 set ignorecase
@@ -185,10 +183,24 @@ nmap  <Space> :set invhls<cr>:set hls?<cr>
 " === Theme ==================================================================
 syntax enable
 set diffopt+=iwhite
-set t_Co=256
 set background=dark
-let g:molokai_original=1
-colorscheme molokai
+let base16colorspace=256  " Access colors present in 256 colorspace
+colorscheme base16-default
+
+"highlight clear SignColumn
+"highlight VertSplit    ctermbg=236
+"highlight ColorColumn  ctermbg=237
+"highlight LineNr       ctermbg=236 ctermfg=240
+"highlight CursorLineNr ctermbg=236 ctermfg=3
+"highlight CursorLine   ctermbg=236
+"highlight StatusLineNC ctermbg=238 ctermfg=0
+"highlight StatusLine   ctermbg=240 ctermfg=12
+"highlight IncSearch    ctermbg=3   ctermfg=1
+"highlight Search       ctermbg=1   ctermfg=3
+"highlight Visual       ctermbg=3   ctermfg=0
+"highlight Pmenu        ctermbg=240 ctermfg=12
+"highlight PmenuSel     ctermbg=3   ctermfg=1
+"highlight SpellBad     ctermbg=0   ctermfg=1
 
 " ============================================================================
 " === Unite menus ============================================================
@@ -196,11 +208,13 @@ let g:unite_source_menu_menus = {}
 
 let g:unite_source_menu_menus.vim = { 'description' : 'Vim settings', }
 let g:unite_source_menu_menus.vim.command_candidates = [
-    \['Open vimrc', ':e $MYVIMRC'],
-    \['Open bundles', ':e ~/.vim/bundles.vim'],
+    \['Open nvimrc', ':e $MYVIMRC'],
+    \['Open plugins', ':e ~/.nvim/plugins.vim'],
     \['Source this file', ':so %'],
-    \['Install bundles', ':BundleInstall'],
-    \['Clean bundles', ':BundleClean'],
+    \['Install plugins', ':PlugInstall'],
+    \['Clean plugins', ':PlugClean'],
+    \['Update plugins', ':PlugUpdate'],
+    \['Upgrade vim-plug', ':PlugUpgrade'],
     \]
 
 let g:unite_source_menu_menus.indent = { 'description' : 'Indentation settings', }
@@ -213,11 +227,7 @@ let g:unite_source_menu_menus.indent.command_candidates = [
 
 let g:unite_source_menu_menus.execute = { 'description' : 'Execute various commands', }
 let g:unite_source_menu_menus.execute.command_candidates = [
-    \['Beautify current JS file', ':call JsBeautify()'],
-    \['Beautify current HMTL file', ':call HtmlBeautify()'],
-    \['Beautify current CSS file', ':call CSSBeautify()'],
     \['Remove console.logs from current file with confirm', ':%s/.*console.*\n//c'],
-    \['Find AMD dependencies with madge', ':! madge -n -f amd -d %:t:r %:p:h'],
     \['Toggle JSHint', ':let g:jshint2_save = 1 - g:jshint2_save | :echo "JSHint ".(g:jshint2_save?"On":"Off")'],
     \]
 " ============================================================================
@@ -229,4 +239,18 @@ set wildmenu " Use menu to show command-line completion (in 'full' case)
 "   - on first <Tab>, when more than one match, list all matches and complete
 "     the longest common  string
 "   - on second <Tab>, complete the next full match and show menu
-set wildmode=list:longest,full
+"
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_loc_list_height=5
+let g:jsx_ext_required = 0
+"let g:syntastic_debug = 3
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+tnoremap <Esc> <C-\><C-n>

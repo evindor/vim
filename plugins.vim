@@ -1,10 +1,8 @@
-set nocompatible
 filetype off
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.nvim/plugged')
 
 " Syntax
-Plug 'jelera/vim-javascript-syntax'
-Plug 'pangloss/vim-javascript'
+Plug 'othree/yajs.vim'
 Plug 'groenewege/vim-less'
 Plug 'digitaltoad/vim-jade'
 Plug 'vim-stylus'
@@ -15,36 +13,50 @@ Plug 'kchmck/vim-coffee-script'
 
 " Interface
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'tomasr/molokai'
 Plug 'Shougo/unite.vim'
+Plug 'jlanzarotta/bufexplorer'
 Plug 'bling/vim-airline'
+Plug 'airblade/vim-gitgutter'
+Plug 'ryanoasis/vim-devicons'
+
+" Themes
+Plug 'tomasr/molokai'
+Plug 'chriskempson/base16-vim'
 
 " Editing
 Plug 'Raimondi/delimitMate'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer' }
 Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/syntastic'
+"Plug 'benekastah/neomake'
 
 " Utility
-Plug 'mileszs/ack.vim'
+"Plug 'mileszs/ack.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'evindor/vim-rusmode'
 Plug 'embear/vim-localvimrc'
 Plug 'ciaranm/detectindent'
 Plug 'vimwiki/vimwiki'
 Plug 'terryma/vim-smooth-scroll'
-Plug 'Shougo/vimproc.vim', { 'do': 'make'}
+Plug 'Shougo/vimproc.vim', { 'do': 'make -f make_mac.mak'}
 Plug 'Shougo/neomru.vim'
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'thinca/vim-quickrun'
+Plug 'ryanss/vim-hackernews'
+Plug 'wincent/terminus'
+Plug 'wincent/ferret'
+"Plug 'janko-m/vim-test'
+Plug 'dhruvasagar/vim-dotoo'
+Plug 'keith/gist.vim'
 
 " Language specific
 Plug 'moll/vim-node'
 Plug 'gorodinskiy/vim-coloresque'
 Plug 'Shutnik/jshint2.vim'
-Plug 'maksimr/vim-jsbeautify'
-Plug 'einars/js-beautify'
-Plug 'evindor/vim-jake', { 'on': 'JakeConnect'}
+"Plug 'evindor/vim-jake', { 'on': 'JakeConnect'}
 Plug 'marijnh/tern_for_vim', {'do': 'npm install'}
-Plug 'amdt/vim-niji'
+Plug 'mxw/vim-jsx'
+Plug 'klen/python-mode'
 
 call plug#end()
 

@@ -1,8 +1,2 @@
-My VIM config I use for JavaScript/Clojure development
+My (NEO)VIM config.
 
-## Installation
-
-    cd ~
-    git clone git://github.com/evindor/vim.git .vim
-    cd .vim
-    ./install.sh
