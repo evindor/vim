@@ -257,5 +257,6 @@ let g:syntastic_mode_map = {
 let g:syntastic_loc_list_height=5
 "let g:syntastic_debug = 3
 let g:jsx_ext_required = 0
+let g:gist_default_private = 1
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 tnoremap <Esc> <C-\><C-n>
