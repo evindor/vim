@@ -3,6 +3,7 @@ call plug#begin('~/.nvim/plugged')
 
 " Syntax
 Plug 'othree/yajs.vim'
+Plug 'pangloss/vim-javascript'
 Plug 'groenewege/vim-less'
 Plug 'digitaltoad/vim-jade'
 Plug 'vim-stylus'
