@@ -18,7 +18,8 @@ iabbrev cosneol console
 :command! Wq wq
 :command! Wqa wqa
 :command! Qa qa
-nnoremap Q <nop>
+nnoremap Q q
+nnoremap q <nop>
 
 " ============================================================================
 " === Buffer and files =======================================================
@@ -26,7 +27,7 @@ nnoremap Q <nop>
 set clipboard=unnamedplus
 set shell=zsh
 set autowriteall " Save file content whenere we leave current buffer or close window
-set encoding=utf-8
+"set encoding=utf-8
 set fileencodings=utf-8,windows-1251,iso-8859-15,koi8-r
 set hidden " Mark abandoned buffers as hidden instead of unload them
 set updatecount=50 " Write swap file to disk after every 50 characters
@@ -147,15 +148,14 @@ noremap <M-k> <C-W>k
 noremap <M-h> <C-W>h
 noremap <M-l> <C-W>l
 
-nmap <silent> <Leader>r :NERDTreeToggle<CR>
-nmap <silent> <Leader>d :bd<CR>
-nmap <silent> <Leader>q ":q<CR>
-nmap <silent> <Leader>l :set list!<CR>
-nmap <silent> <Leader>v :Unite -start-insert menu:vim<CR>
-nmap <silent> <Leader>i :Unite -start-insert menu:indent<CR>
-nmap <silent> <Leader>x :Unite -start-insert menu:execute<CR>
-nmap <silent> <Leader>g :GitGutterToggle<CR>
-nmap <silent> <Leader>y :SyntasticToggleMode<CR>
+nnoremap <silent> <Leader>r :NERDTreeToggle<CR>
+nnoremap <silent> <Leader>d :NERDTreeFind<CR>
+nnoremap <silent> <Leader>l :set list!<CR>
+nnoremap <silent> <Leader>v :Unite -start-insert menu:vim<CR>
+nnoremap <silent> <Leader>i :Unite -start-insert menu:indent<CR>
+nnoremap <silent> <Leader>x :Unite -start-insert menu:execute<CR>
+nnoremap <silent> <Leader>g :GitGutterToggle<CR>
+nnoremap <silent> <Leader>y :SyntasticToggleMode<CR>
 nnoremap <silent> <Leader>e :BufExplorer<CR>
 
 " Smooth scroll bindings
@@ -166,7 +166,6 @@ noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 20, 4)<CR>
 
 nnoremap <leader>p :<C-u>Unite -start-insert file_rec/async:!<CR>
 nnoremap \ :Unite grep:.<cr>
-nnoremap <silent> <Leader>m :Unite -buffer-name=recent -winheight=10 file_mru<cr>
 
 
 " ============================================================================
